@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
+using JsonMVC.Web.Models;
 
 namespace JsonMVC.Web.Controllers
 {
@@ -8,7 +9,10 @@ namespace JsonMVC.Web.Controllers
         // GET: TestandoJson
         public ActionResult Index()
         {
-            return View();
+            NomeViewModel viewModel = new NomeViewModel();
+            viewModel.Name = "Luciano Carlos";
+            viewModel.LastName = "Jesus";
+            return View(viewModel);
         }
 
         public JsonResult GetDados()
@@ -34,6 +38,12 @@ namespace JsonMVC.Web.Controllers
             });
 
             return Json(resultado, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult PostDados(NomeViewModel model)
+        {
+            return Json(model);
         }
     }
 }
