@@ -22,5 +22,11 @@ namespace JsonMVC.Web.Controllers
             };
             return View(model);
         }
+
+        [HttpPost]
+        public ActionResult GravaUser(UsuarioViewModel model)
+        {
+            return Json(model);
+        }
     }
 }
