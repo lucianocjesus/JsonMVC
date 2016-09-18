@@ -12,6 +12,7 @@ namespace JsonMVC.Web
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*",
+                        "~//Scripts/jquery.tabletojson.min.js",
                         "~/Scripts/usuario/functionusuario.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're

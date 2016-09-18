@@ -16,9 +16,9 @@ namespace JsonMVC.Web.Controllers
                 Celular = "(19) 98206-6377",
                 DocumentoRg = "321907760",
                 DocumentoCpf = "28156649842",
-                Facebook = "facebook.com.br/lucianocjesus",
+                Facebook = "lucianocjesus",
                 Twitter = "@lucianocjesus",
-                Instagram = "instagram.com/lucianocjesus"
+                Instagram = "lucianocjesus"
             };
             return View(model);
         }

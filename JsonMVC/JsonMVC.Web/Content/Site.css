@@ -22,3 +22,9 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.font-table {
+    font-size: 12px;
+    font-family: serif;
+    color: #4682B4;
+}
