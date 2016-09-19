@@ -42,6 +42,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsuarioService.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JsonMVC.Data\JsonMVC.Data.csproj">
+      <Project>{1423ef7a-3b86-432e-853e-94682d0bd9f9}</Project>
+      <Name>JsonMVC.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JsonMVC.Domain\JsonMVC.Domain.csproj">
+      <Project>{2c850857-db04-46ce-bf7e-ac17e9ff7684}</Project>
+      <Name>JsonMVC.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

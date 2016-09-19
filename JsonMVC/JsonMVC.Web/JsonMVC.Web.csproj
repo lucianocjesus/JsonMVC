@@ -216,6 +216,16 @@
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JsonMVC.Business\JsonMVC.Business.csproj">
+      <Project>{e98951bb-cec0-4926-b451-b8d35d0d837a}</Project>
+      <Name>JsonMVC.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JsonMVC.Domain\JsonMVC.Domain.csproj">
+      <Project>{2c850857-db04-46ce-bf7e-ac17e9ff7684}</Project>
+      <Name>JsonMVC.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
