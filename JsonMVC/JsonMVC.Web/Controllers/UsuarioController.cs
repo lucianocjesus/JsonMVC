@@ -24,9 +24,10 @@ namespace JsonMVC.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult GravaUser(UsuarioViewModel model)
+        public JsonResult GravaUser(UsuarioViewModel model)
         {
-            return Json(model);
+            const string strMsg = "Usuario adicionado com sucesso";
+            return Json(strMsg);
         }
     }
 }

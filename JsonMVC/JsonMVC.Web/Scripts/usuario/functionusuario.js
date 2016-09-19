@@ -4,9 +4,8 @@
     $("#btnAdicionar").click(function () {
 
         if (verificaCampos()) {
-            $("#titleModal").text("Dados incompletos");
-            $("#msgModal").html(verificaCampos());
-            $("#myModal").modal("show");
+            $('#lblErro').html(verificaCampos());
+            $('#modalErro').modal();
             return false;
         }
 
@@ -24,6 +23,7 @@
         cols += '<td><button class="btn btn-danger" id="btnRemoverLinha" onclick="RemoveTableRow(this)" type="button">Remover</button></td></tr>';
         newRow.append(cols);
         $("#users-table").append(newRow);
+        $("input[type=text]").each(function() {$(this).val("");});
         return false;
     });
 
@@ -42,19 +42,25 @@
             request.Facebook = $(this).find("td:nth-child(7)").text();
             request.Twitter = $(this).find("td:nth-child(8)").text();
             request.Instagram = $(this).find("td:nth-child(9)").text();
-
+            
             $.ajax({
-                type: 'post',
-                url: '/Usuario/GravaUser',
+                dataType: "json",
+                type: "POST",
+                contentType: "application/json",
+                url: "/Usuario/GravaUser",
                 data: JSON.stringify(request),
-                contentType: "application/json; charset=utf-8",
-                traditional: true,
-                success: function (data) {
-                    $("#titleModal").text("Envio de Dados");
-                    $("#msgModal").html("Usuario " + data.Nome + " adicionado com sucesso.");
-                    $("#myModal").modal("show");
+                success: function (dados) {
+                    $("#lblInformation").html(dados);
+                    $("#modalInfo").modal();
                 }
             });
+        });
+    });
+
+    //Função limpar tabela.
+    $(".InfoModalClose").click(function() {
+        $("#users-table > tbody").each(function () {
+            $(this).find("tr").fadeOut(800);
         });
     });
 });
@@ -79,13 +85,13 @@ function verificaCampos() {
 
 function UsuarioViewModel() {
     var self = this;
-    self.Nome = "sdfsdfdsd";
-    self.Email = "sdfs";
-    self.Telefone = "sdf";
-    self.Celular = "sdf";
-    self.DocumentoRg = "sdf";
-    self.DocumentoCpf = "sdf";
-    self.Facebook = "sdf";
-    self.Twitter = "sdf";
-    self.Instagram = "sdfsdf";
+    self.Nome = "";
+    self.Email = "";
+    self.Telefone = "";
+    self.Celular = "";
+    self.DocumentoRg = "";
+    self.DocumentoCpf = "";
+    self.Facebook = "";
+    self.Twitter = "";
+    self.Instagram = "";
 }
