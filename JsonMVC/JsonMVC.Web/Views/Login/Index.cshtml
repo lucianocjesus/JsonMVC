@@ -9,152 +9,17 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    <style type="text/css">
-        body .login, body .login h3 {
-            font-family: 'Open Sans', sans-serif;
-        }
-
-        .login {
-            width: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-
-            .login > .container {
-                position: relative;
-            }
-
-        .boxLogin {
-            width: 100%;
-            min-height: 450px;
-            background-color: #fff;
-            border-radius: 8px 8px 0 0;
-            margin-top: 70px;
-            max-width: 526px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 25px 40px;
-        }
-
-            .boxLogin h3 {
-                text-align: center;
-                margin-bottom: 40px;
-            }
-
-        .boxLoginShadow {
-            max-width: 526px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .footer {
-            background-color: #B5B5B5;
-            height: 44px;
-            margin-top: 30px;
-        }
-
-        .login .form-control {
-            height: 45px;
-            border-radius: 0;
-        }
-
-        .login .input-group-addon {
-            border-radius: 0;
-            background-color: #fff;
-            padding: 0;
-        }
-
-        .login .form-group {
-            margin-bottom: 20px;
-        }
-
-        .login .btn-pearson {
-            border-radius: 0;
-            width: 100%;
-            font-size: 18px;
-            font-weight: 700;
-            color: #fff;
-            border: 0;
-            background-color: #364294;
-            padding: 25px 12px;
-        }
-
-            .login.btn-pearson:focus,
-            .login .btn-pearson:hover {
-                background-color: #424FAB;
-                color: #fff;
-            }
-
-        .login .squaredThree {
-            position: relative;
-        }
-
-            .login .squaredThree label {
-                width: 25px;
-                height: 25px;
-                cursor: pointer;
-                position: absolute;
-                top: 0;
-                left: 0;
-                border-radius: 0;
-                border: 1px solid #ccc;
-            }
-
-                .login .squaredThree label:after {
-                    content: '';
-                    width: 14px;
-                    height: 7px;
-                    position: absolute;
-                    top: 6px;
-                    left: 5px;
-                    border: 3px solid #000;
-                    border-top: none;
-                    border-right: none;
-                    background: transparent;
-                    opacity: 0;
-                    -webkit-transform: rotate(-45deg);
-                    -ms-transform: rotate(-45deg);
-                    transform: rotate(-45deg);
-                }
-
-                .login .squaredThree label:hover::after {
-                    opacity: 0.3;
-                }
-
-            .login .squaredThree input[type=checkbox] {
-                visibility: hidden;
-            }
-
-                .login .squaredThree input[type=checkbox]:checked + label:after {
-                    opacity: 1;
-                }
-
-        .login .fontBoxLogin {
-            font-size: 12px;
-            font-weight: 400;
-            color: #364294;
-            text-decoration: none;
-        }
-
-        .login a.fontBoxLogin:hover {
-            text-decoration: none;
-        }
-
-        .login .remember-password {
-            margin-left: 15px;
-        }
-    </style>
+    @Styles.Render("~/Content/login")
 </head>
 <body>
     <div class="login">
         <div class="container">
             <div class="row">
                 <div class="col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
-                    <div class="boxLogin">
+                    <div class="boxLogin animated rollIn">
                         <h3>LOGIN</h3>
                         <!-- UserName -->
-                        <div class="form-group">
+                        <div class="form-group animated bounce">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <img src="~/Content/img/icoLogin.png" alt="">
@@ -164,17 +29,16 @@
                         </div>
 
                         <!-- Password -->
-                        <div class="form-group">
+                        <div class="form-group animated bounce">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <img src="~/Content/img/icoPass.png" alt="">
                                 </span>
                                 <input name="TxtPassword" type="password" id="TxtPassword" tabindex="2" class="form-control" placeholder="Senha" />
-
                             </div>
                         </div>
 
-                        <div class="row">
+                        <div class="row animated bounce">
                             <div class="col-xs-6">
                                 <!-- Remember? -->
                                 <section>
@@ -188,10 +52,11 @@
                                 </section>
                             </div>
                             <div class="col-xs-6">
-                                <input class="btn btn-pearson" id="BtnSignIn" name="BtnSignIn" tabindex="4" type="submit" value="ENTRAR" />
+                                <input class="btn btn-lcj" id="BtnSignIn" name="BtnSignIn" tabindex="4" type="submit" value="ENTRAR" />
                             </div>
                         </div>
-                        <div class="row" style="margin-top: 25px;">
+
+                        <div class="row animated bounce" style="margin-top: 25px;">
                             <div class="col-xs-12">
                                 <p>
                                     <!-- Lost Password -->
@@ -206,27 +71,6 @@
 
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="container language-box">
-            <div class="row">
-                <div class="col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 text-center">
-
-                </div>
-            </div>
-        </div>
-
-        <div class="container-fluid footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-6">
-                        <p>@DateTime.Now.Year - Json - MVC</p>
-                    </div>
-                    <div class="col-xs-6 text-right">
-                        <p>LCJ Developer & Consulting</p>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>

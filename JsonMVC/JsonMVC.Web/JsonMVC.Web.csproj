@@ -130,6 +130,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\img\icoLogin.png" />
     <Content Include="Content\img\icoPass.png" />
+    <Content Include="Content\StyleLogin.css" />
     <Content Include="favicon.ico" />
     <Content Include="font-awesome\css\font-awesome.css" />
     <Content Include="font-awesome\css\font-awesome.min.css" />

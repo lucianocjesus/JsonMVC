@@ -30,6 +30,11 @@ namespace JsonMVC.Web
                       "~/Content/bootstrap.css",
                       "~/Content/bootstrap-theme.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new ScriptBundle("~/Content/login").Include(
+                        "~/font-awesome/css/font-awesome.min.css",
+                        "~/Content/animate.css",
+                        "~/Content/StyleLogin.css"));
         }
     }
 }
