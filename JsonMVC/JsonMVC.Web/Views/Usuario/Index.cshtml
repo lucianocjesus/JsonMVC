@@ -1,159 +1,88 @@
 ﻿@model JsonMVC.Web.Models.UsuarioViewModel
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>Cadastro de Usuarios</h2>
-
-@using (Html.BeginForm(null,null, FormMethod.Post, new {id = "formuser"}))
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "formuser" }))
 {
-    @Html.AntiForgeryToken()
+	@Html.AntiForgeryToken()
 
-    <div class="form-horizontal" id="formularioUsuario">
-        @*<h4>UsuarioViewModel</h4>*@
+	<div class="row">
+		<div class="col-md-12">
+			<section class="panel">
+				<header class="panel-heading">
+					Listagem de Clientes <span class="tools pull-right">
+						<a href="javascript:;" class="fa fa-chevron-down"></a>
+						<a href="javascript:;" class="fa fa-times"></a>
+					</span>
+				</header>
+				<div class="panel-body">
+					<button class="btn btn-round btn-info" id="btnAdicionar" type="button">Adicionar</button>
+					<table id="users-table" class="table table-hover table-responsive">
+						<thead>
+							<tr>
+								<th>Nome</th>
+								<th>Email</th>
+								<th>Telefone</th>
+								<th>Celular</th>
+								<th>RG</th>
+								<th>CPF</th>
+								<th>Facebook</th>
+								<th>Twitter</th>
+								<th>Instagram</th>
+								<th>Ações</th>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+					<button class="btn btn-round btn-success" id="btnGravar" type="button">Gravar</button>
+				</div>
+			</section>
+		</div>
+	</div>
 
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Id)
+	<!-- Modal-content -->
+	<div class="modal fade" id="modalErro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>Atenção</h4>
+				</div>
+				<div class="modal-body">
+					<div class="alert alert-danger" role="alert">
+						<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+						<h4><span class="sr-only">Erro:</span></h4>
+						<h4>
+							<div id="lblErro"></div>
+						</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Telefone, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Telefone, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Telefone, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Celular, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Celular, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Celular, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.DocumentoRg, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DocumentoRg, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DocumentoRg, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.DocumentoCpf, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DocumentoCpf, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DocumentoCpf, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Facebook, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Facebook, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Facebook, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Twitter, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Twitter, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Twitter, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Instagram, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Instagram, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Instagram, "", new { @class = "text-danger" })
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div class="row">
-            <button class="btn btn-default" id="btnAdicionar" type="button">Adicionar</button>
-            <table id="users-table" class="table table-hover table-responsive">
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>Email</th>
-                        <th>Telefone</th>
-                        <th>Celular</th>
-                        <th>RG</th>
-                        <th>CPF</th>
-                        <th>Facebook</th>
-                        <th>Twitter</th>
-                        <th>Instagram</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-            <button class="btn btn-default" id="btnGravar" type="button">Gravar</button>
-        </div>
-    </div>
-
-    <!-- Modal-content -->
-    <div class="modal fade" id="modalErro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>Atenção</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="alert alert-danger" role="alert">
-                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                        <h4><span class="sr-only">Erro:</span></h4>
-                        <h4>
-                            <div id="lblErro"></div>
-                        </h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="modalInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close InfoModalClose" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="modalInfoLabel"><i class="fa fa-info-circle" aria-hidden="true"></i>Informação</h4>
-                </div>
-                <div class="modal-body">
-                    <div id="lblInformation"></div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default InfoModalClose" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="modal fade" id="modalInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close InfoModalClose" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="modalInfoLabel"><i class="fa fa-info-circle" aria-hidden="true"></i>Informação</h4>
+				</div>
+				<div class="modal-body">
+					<div id="lblInformation"></div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-round btn-primary InfoModalClose" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 }
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/bundles/usuario")
+	@Scripts.Render("~/bundles/jqueryval")
+	@Scripts.Render("~/bundles/usuario")
 }
