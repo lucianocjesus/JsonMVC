@@ -12,9 +12,7 @@
 	@Scripts.Render("~/bundles/modernizr")
 	@Styles.Render("~/Content/login")
 	<style type="text/css">
-		.link {
-			cursor: pointer;
-		}
+		.link {cursor: pointer;}
 	</style>
 </head>
 <body>
@@ -94,18 +92,16 @@
 						<p></p>
 						<div class="row">
 							<div class="panel-body">
-								@*<div class="position-center">*@
-									<form class="form-inline" role="form">
-										<div class="form-group">
-											<div class="col-sm-8">
-												<input type="email" class="form-control round-input" id="exampleInputEmail2" placeholder="Enter email">
-											</div>
-											<div class="col-sm-4">
-												<button type="submit" class="btn btn-success">Enviar</button>
-											</div>
+								<form class="form-inline" role="form">
+									<div class="form-group">
+										<div class="col-sm-8">
+											<input type="email" class="form-control round-input" id="exampleInputEmail2" placeholder="Enter email">
 										</div>
-									</form>
-								@*</div>*@
+										<div class="col-sm-4">
+											<button type="submit" class="btn btn-success">Enviar</button>
+										</div>
+									</div>
+								</form>
 							</div>
 						</div>
 						<div class="modal-footer">
@@ -114,9 +110,11 @@
 					</div>
 				</div>
 			</div>
-			<!--Modal Informativo End-->
-			@Scripts.Render("~/bundles/jquery")
-			@Scripts.Render("~/bundles/bootstrap")
-			<script type="text/javascript" src="../../Scripts/login/functionlogin.js"></script>
+		</div>
+	</div>
+	<!--Modal Informativo End-->
+	@Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/bundles/bootstrap")
+	<script type="text/javascript" src="../../Scripts/login/functionlogin.js"></script>
 </body>
 </html>
