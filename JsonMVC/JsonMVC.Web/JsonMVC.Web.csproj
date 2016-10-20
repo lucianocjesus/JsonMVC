@@ -233,8 +233,10 @@
     <Content Include="Scripts\themebucket\jquery.scrollTo.min.js" />
     <Content Include="Scripts\themebucket\jquery.slimscroll.js" />
     <Content Include="Scripts\themebucket\jquery.sparkline.js" />
+    <Content Include="Scripts\themebucket\justgage.js" />
     <Content Include="Scripts\themebucket\moment-2.2.1.js" />
     <Content Include="Scripts\themebucket\morris.js" />
+    <Content Include="Scripts\themebucket\raphael-2.1.4.min.js" />
     <Content Include="Scripts\themebucket\raphael-min.js" />
     <Content Include="Scripts\themebucket\scripts.js" />
     <Content Include="Scripts\themebucket\skycons.js" />
